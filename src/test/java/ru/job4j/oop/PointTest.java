@@ -16,6 +16,15 @@ public class PointTest {
     }
 
     @Test
+    public void when100to55then707() {
+        double expected = 7.07;
+        Point point1 = new Point(10, 0);
+        Point point2 = new Point(5, 5);
+        double out = point1.distance(point2);
+        assertEquals(expected, out, 0.01);
+    }
+
+    @Test
     public void when000to001then1() {
         double expected = 1;
         Point point1 = new Point(0, 0, 0);
