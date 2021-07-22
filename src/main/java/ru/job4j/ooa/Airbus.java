@@ -4,17 +4,12 @@ public final class Airbus extends Aircraft {
 
     private static final int COUNT_ENGINE = 2;
 
-    private String name;
+    private static final String AIRBUS_A380 = "A380";
 
-    private int countEngine = COUNT_ENGINE;
+    private String name;
 
     public Airbus(String name) {
         this.name = name;
-    }
-
-    public Airbus(String name, int countEngine) {
-        this.name = name;
-        this.countEngine = countEngine;
     }
 
     public String getName() {
@@ -25,28 +20,20 @@ public final class Airbus extends Aircraft {
         this.name = name;
     }
 
-    public int getCountEngine() {
-        return countEngine;
-    }
-
-    public void setCountEngine(int countEngine) {
-        this.countEngine = countEngine;
-    }
-
     @Override
     public void printModel() {
         System.out.println("Модель самолета: " + name);
     }
 
     public void printCountEngine() {
+        int countEngine = AIRBUS_A380.equals(this.name) ? 4 : COUNT_ENGINE;
         System.out.println("Количество двигателей равно: " + countEngine);
     }
 
     @Override
     public String toString() {
         return "Airbus{"
-                + "name='" + name + "',"
-                + "countEngine='" + countEngine + '\''
+                + "name='" + name + '\''
                 + '}';
     }
 }
