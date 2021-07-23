@@ -2,16 +2,18 @@ package ru.job4j.tracker;
 
 public final class SingleTracker {
 
-    private Tracker tracker;
+    private static SingleTracker instance = null;
+
+    private Tracker tracker = new Tracker();
 
     private SingleTracker() {
     }
 
-    public Tracker getTracker() {
-        if (this.tracker == null) {
-            return new Tracker();
+    public static SingleTracker getInstance() {
+        if (instance == null) {
+            return new SingleTracker();
         }
-        return this.tracker;
+        return instance;
     }
 
     public Item add(Item item) {
