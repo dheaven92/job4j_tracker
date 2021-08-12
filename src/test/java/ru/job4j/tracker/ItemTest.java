@@ -6,25 +6,33 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 public class ItemTest {
 
     @Test
     public void sortByNameIncreasing() {
-        List<Item> items = new ArrayList<>();
-        items.add(new Item("Go shopping"));
-        items.add(new Item("Ask questions"));
-        Collections.sort(items);
-        assertEquals(items.get(0), new Item("Ask questions"));
+        List<Item> actualItems = new ArrayList<>();
+        actualItems.add(new Item("Go shopping"));
+        actualItems.add(new Item("Ask questions"));
+        Collections.sort(actualItems);
+        List<Item> expectedItems = List.of(
+                new Item("Ask questions"),
+                new Item("Go shopping")
+        );
+        assertEquals(expectedItems, actualItems);
     }
 
     @Test
     public void sortByNameDecreasing() {
-        List<Item> items = new ArrayList<>();
-        items.add(new Item("Ask questions"));
-        items.add(new Item("Go shopping"));
-        Collections.sort(items, new ItemSortByNameDecreasingComparator());
-        assertEquals(items.get(0), new Item("Go shopping"));
+        List<Item> actualItems = new ArrayList<>();
+        actualItems.add(new Item("Ask questions"));
+        actualItems.add(new Item("Go shopping"));
+        Collections.sort(actualItems, new ItemSortByNameDecreasingComparator());
+        List<Item> expectedItems = List.of(
+                new Item("Go shopping"),
+                new Item("Ask questions")
+        );
+        assertEquals(expectedItems, actualItems);
     }
 }
