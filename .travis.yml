@@ -18,3 +18,7 @@ notifications:
       - voronovadaria@gmail.com
     on_success: never # default: change
     on_failure: always # default: always
+
+env:
+  global:
+    - CODECOV_TOKEN="94e898c9-7cdf-4d27-8e67-f488cb8e0779"
