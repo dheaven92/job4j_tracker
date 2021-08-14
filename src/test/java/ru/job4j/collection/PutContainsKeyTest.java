@@ -9,7 +9,6 @@ import java.util.Map;
 
 import ru.job4j.collection.PutContainsKey.User;
 
-
 public class PutContainsKeyTest {
 
     @Test
