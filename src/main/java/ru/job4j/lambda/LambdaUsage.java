@@ -8,7 +8,7 @@ public class LambdaUsage {
         Comparator<String> compDescByLength = (left, right) -> {
             System.out.println("compare \"" + right + "\" with \""
                     + left + "\" by length in desc order");
-            return Integer.compare(right.length(), left.length());
+            return right.length() - left.length();
         };
     }
 }
