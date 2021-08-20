@@ -1,6 +1,8 @@
 package ru.job4j.lambda;
 
+import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.List;
 
 public class LambdaUsage {
 
@@ -10,5 +12,10 @@ public class LambdaUsage {
                     + left + "\" by length in desc order");
             return Integer.compare(right.length(), left.length());
         };
+        List<String> list = new ArrayList<>(List.of("abc", "abcde", "abcd"));
+        list.sort(compDescByLength);
+        for (String s : list) {
+            System.out.println(s);
+        }
     }
 }
