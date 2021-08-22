@@ -12,10 +12,18 @@ public class Card {
         this.value = value;
     }
 
+    public Suit getSuit() {
+        return suit;
+    }
+
+    public Value getValue() {
+        return value;
+    }
+
     public static void main(String[] args) {
         Stream.of(Suit.values())
                 .flatMap(s -> Stream.of(Value.values())
                         .map(v -> new Card(s, v)))
-                .forEach(System.out::println);
+                .forEach(c -> System.out.println(c.getSuit() + " " + c.getValue()));
     }
 }
