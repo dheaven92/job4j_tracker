@@ -42,5 +42,4 @@ public class OptionalFilterTest {
         assertEquals(2, OptionalFilter.defineChildren(List.of(worker1, worker2), "123").size());
     }
 
-
 }
