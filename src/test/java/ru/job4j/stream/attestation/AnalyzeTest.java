@@ -6,7 +6,6 @@ import java.util.List;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
 
 public class AnalyzeTest {
 
@@ -65,17 +64,10 @@ public class AnalyzeTest {
                         ))
                 ).stream()
         );
-//        assertThat(average, is(List.of(
-//                new Tuple("Math", 80D),
-//                new Tuple("Lang", 80D)
-//        )));
-        List<Tuple> expected = List.of(
+        assertThat(average, is(List.of(
                 new Tuple("Math", 80D),
                 new Tuple("Lang", 80D)
-        );
-        assertTrue(expected.size() == average.size()
-                && expected.containsAll(average)
-                && average.containsAll(expected));
+        )));
     }
 
     @Test
