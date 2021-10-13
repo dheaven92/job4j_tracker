@@ -1,12 +1,13 @@
 package ru.job4j.tracker;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public final class SingleTracker {
 
     private static SingleTracker instance = null;
 
-    private Tracker tracker = new Tracker();
+    private Store tracker = new MemTracker();
 
     private SingleTracker() {
     }
@@ -18,7 +19,7 @@ public final class SingleTracker {
         return instance;
     }
 
-    public Item add(Item item) {
+    public Item add(Item item) throws SQLException {
         return tracker.add(item);
     }
 

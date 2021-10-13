@@ -28,6 +28,12 @@ public class Item implements Comparable<Item> {
         this.id = id;
     }
 
+    public Item(String name, int id, LocalDateTime created) {
+        this.name = name;
+        this.id = id;
+        this.created = created;
+    }
+
     public int getId() {
         return id;
     }
