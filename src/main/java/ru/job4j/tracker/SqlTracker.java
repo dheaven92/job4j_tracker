@@ -11,6 +11,13 @@ public class SqlTracker implements Store {
 
     private Connection connection;
 
+    public SqlTracker() {
+    }
+
+    public SqlTracker(Connection connection) {
+        this.connection = connection;
+    }
+
     @Override
     public void init() {
         try (InputStream in = SqlTracker.class.getClassLoader()
@@ -56,6 +63,7 @@ public class SqlTracker implements Store {
         )) {
             statement.setString(1, item.getName());
             statement.setTimestamp(2, Timestamp.valueOf(item.getCreated()));
+            statement.setInt(3, id);
             result = statement.executeUpdate() > 0;
         } catch (Exception e) {
             e.printStackTrace();
