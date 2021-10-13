@@ -1,6 +1,5 @@
 package ru.job4j.tracker;
 
-import java.sql.SQLException;
 import java.util.List;
 
 public class StartUI {
@@ -11,7 +10,7 @@ public class StartUI {
         this.out = out;
     }
 
-    public void init(Input input, Store tracker, List<UserAction> actions) throws SQLException {
+    public void init(Input input, Store tracker, List<UserAction> actions) {
         boolean run = true;
         while (run) {
             showMenu(actions);
@@ -32,7 +31,7 @@ public class StartUI {
         }
     }
 
-    public static void main(String[] args) throws SQLException {
+    public static void main(String[] args) {
         Output output = new ConsoleOutput();
         Input input = new ValidateInput(output, new ConsoleInput());
         Store tracker = new MemTracker();

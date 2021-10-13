@@ -29,7 +29,7 @@ public class SqlTracker implements Store {
     }
 
     @Override
-    public Item add(Item item) throws SQLException {
+    public Item add(Item item) {
         try (PreparedStatement statement = connection.prepareStatement(
                 "insert into items (name, created) values (?, ?);",
                 Statement.RETURN_GENERATED_KEYS
@@ -42,6 +42,8 @@ public class SqlTracker implements Store {
                     item.setId(generatedKeys.getInt(1));
                 }
             }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
         return item;
     }
