@@ -45,7 +45,7 @@ public class SqlTracker implements Store {
             statement.setTimestamp(2, Timestamp.valueOf(LocalDateTime.now()));
             statement.execute();
             try (ResultSet generatedKeys = statement.getGeneratedKeys()) {
-                while (generatedKeys.next()) {
+                if (generatedKeys.next()) {
                     item.setId(generatedKeys.getInt(1));
                 }
             }
@@ -108,7 +108,7 @@ public class SqlTracker implements Store {
     public List<Item> findByName(String key) {
         List<Item> items = new ArrayList<>();
         try (PreparedStatement statement = connection.prepareStatement(
-                "select * from items where name = ?"
+                "select * from items where name like ?"
         )) {
             statement.setString(1, key);
             try (ResultSet resultSet = statement.executeQuery()) {
@@ -134,7 +134,7 @@ public class SqlTracker implements Store {
         )) {
             statement.setInt(1, id);
             try (ResultSet resultSet = statement.executeQuery()) {
-                while (resultSet.next()) {
+                if (resultSet.next()) {
                     item = new Item(
                             resultSet.getString("name"),
                             resultSet.getInt("id"),
