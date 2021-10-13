@@ -22,3 +22,8 @@ notifications:
 env:
   global:
     - CODECOV_TOKEN="94e898c9-7cdf-4d27-8e67-f488cb8e0779"
+
+before_script:
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
+  - sleep 3 # give xvfb some time to start
