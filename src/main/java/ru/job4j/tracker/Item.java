@@ -20,6 +20,8 @@ public class Item implements Comparable<Item> {
 
     private LocalDateTime created = LocalDateTime.now();
 
+    private String description;
+
     public Item() {
 
     }
@@ -36,6 +38,12 @@ public class Item implements Comparable<Item> {
     public Item(String name, int id, LocalDateTime created) {
         this.name = name;
         this.id = id;
+        this.created = created;
+    }
+
+    public Item(String name, String description, LocalDateTime created) {
+        this.name = name;
+        this.description = description;
         this.created = created;
     }
 
@@ -57,6 +65,14 @@ public class Item implements Comparable<Item> {
 
     public LocalDateTime getCreated() {
         return created;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     @Override
