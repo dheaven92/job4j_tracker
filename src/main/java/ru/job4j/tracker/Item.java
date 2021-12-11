@@ -14,7 +14,7 @@ public class Item implements Comparable<Item> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
     private String name;
 
