@@ -12,6 +12,6 @@
         <property name="hibernate.connection.characterEncoding">UTF-8</property>
         <property name="hbm2ddl.auto">create</property>
 
-        <mapping class="ru.job4j.tracker.Item"/>
+        <mapping class="ru.job4j.tracker.model.Item"/>
     </session-factory>
 </hibernate-configuration>
